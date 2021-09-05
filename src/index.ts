@@ -92,6 +92,7 @@ export async function launchBrowser(): Promise<Browser> {
     args.push('--disable-setuid-sandbox');
     args.push('--headless');
     args.push('--disable-gpu');
+    args.push('--single-process');
     config.browser.open = false;
   }
 
