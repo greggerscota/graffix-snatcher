@@ -1,10 +1,10 @@
 version: '3.0'
 services:
-  streetmerchant:
-    image: ghcr.io/jef/streetmerchant:latest
+  graffix-snatcher:
+    image: ${_IMAGE_NAME}
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: streetmerchant
+    #container_name: streetmerchant
     env_file:
       - dotenv
