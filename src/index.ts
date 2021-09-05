@@ -88,11 +88,11 @@ export async function launchBrowser(): Promise<Browser> {
   // https://stackoverflow.com/questions/48230901/docker-alpine-with-node-js-and-chromium-headless-puppeter-failed-to-launch-c
   if (config.docker) {
     args.push('--disable-dev-shm-usage');
-    args.push('--no-sandbox');
+    //args.push('--no-sandbox');
     args.push('--disable-setuid-sandbox');
     args.push('--headless');
     args.push('--disable-gpu');
-    args.push('--single-process');
+    //args.push('--single-process');
     config.browser.open = false;
   }
 
