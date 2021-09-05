@@ -5,6 +5,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    #container_name: streetmerchant
-    env_file:
-      - dotenv
+    # env_file:
+    #   - dotenv
