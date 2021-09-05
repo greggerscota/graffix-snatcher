@@ -59,10 +59,7 @@ RUN apt-get update \
 #RUN npm i -g puppeteer \
     # Add user so we don't need --no-sandbox.
     # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
-RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /node_modules
+
 ##############################################################################################################
 
 WORKDIR /app
@@ -71,6 +68,15 @@ COPY --from=builder /build/node_modules/ node_modules/
 COPY --from=builder /build/build/ build/
 COPY web/ web/
 COPY package.json package.json
+
+RUN npm i -g puppeteer \
+    && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
+    && mkdir -p /home/pptruser/Downloads \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /node_modules
+  
+# Run everything after as non-privileged user.
+USER pptruser
 
 ENTRYPOINT ["npm", "run"]
 CMD ["start:production"]
