@@ -13,7 +13,7 @@
 # tags: ['gcp-cloud-build-sample-build']
 
 steps:
-  - name: gcr.io/cloud-builders/docker-compose
+  - name: gcr.io/$PROJECT_ID/docker-compose
     id: Build
     args: [ 'build' ]
     # args:
