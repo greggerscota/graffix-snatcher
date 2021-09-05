@@ -44,8 +44,8 @@ steps:
     entrypoint: gcloud
 images:
   - '$_IMAGE_NAME'
-#options:
-  #env: [ 'IMAGE_NAME=$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME' ]
+options:
+  env: [ 'IMAGE_NAME=${_IMAGE_NAME}' ]
 substitutions:
   _IMAGE_NAME: '${_GCR_HOSTNAME}/${PROJECT_ID}/${REPO_NAME}/${_SERVICE_NAME}'
   _DEPLOY_REGION: us-central1

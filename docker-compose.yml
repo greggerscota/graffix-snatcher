@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   graffix-snatcher:
-    image: ${_IMAGE_NAME}
+    image: ${IMAGE_NAME}
     build:
       context: .
       dockerfile: Dockerfile
