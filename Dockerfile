@@ -19,7 +19,7 @@ RUN npm prune --production
 #FROM node:16.6.1-alpine3.13
 FROM node:16.6.1-slim
 
-RUN apk add --no-cache chromium
+#RUN apk add --no-cache chromium
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
   DOCKER=true
